@@ -27,3 +27,5 @@ To get started with the project, follow these steps:
    git clone https://github.com/YapWH/Fraud-Detection.git
 
 2. Open the folder and run the `MCYIC.py` file.
+   ```sh
+   python MCYIC.py
