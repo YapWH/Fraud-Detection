@@ -1,0 +1,10 @@
+imbalanced_learn==0.12.2
+imblearn==0.0
+numpy==1.24.4
+pandas==2.2.2
+PyQt5==5.15.10
+PyQt5_sip==12.12.2
+PyQt5_sip==12.13.0
+scikit_learn==1.3.2
+torch==2.1.2+cu121
+torchvision==0.16.2+cu121
