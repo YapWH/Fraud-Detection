@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FraudDetection</class>
+ <widget class="QMainWindow" name="FraudDetection">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1087</width>
+    <height>672</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>FraudDetection</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/sunset.jpg);
+border-radius:30px;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>40</y>
+      <width>361</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>42</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0,0,0,100);
+color: rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>Welcome</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>180</y>
+      <width>761</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid rgba(0,0,0,0);
+border-bottom-color:rgba(0,0,0,100);
+background-color:rgba(0,0,0,0);</string>
+    </property>
+    <property name="placeholderText">
+     <string>Account:</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit_2">
+    <property name="geometry">
+     <rect>
+      <x>130</x>
+      <y>280</y>
+      <width>761</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid rgba(0,0,0,0);
+border-bottom-color:rgba(0,0,0,100);
+background-color:rgba(0,0,0,0);</string>
+    </property>
+    <property name="placeholderText">
+     <string>Password:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>380</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 244, 203);
+color:rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>Remember me</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox_2">
+    <property name="geometry">
+     <rect>
+      <x>190</x>
+      <y>440</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+      <pointsize>7</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(255, 244, 203);
+color:rgb(255,255,255);</string>
+    </property>
+    <property name="text">
+     <string>Auto Login</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>720</x>
+      <y>510</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    
+	image: url(:/tencent.png);
+    background-color:rgba(0,0,0,0);
+}
+
+QPushButton:hover{
+    paddin-bottom:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>800</x>
+      <y>510</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    
+	
+	image: url(:/wechat.png);
+    background-color:rgba(0,0,0,0);
+}
+
+QPushButton:hover{
+    paddin-bottom:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>890</x>
+      <y>510</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    
+	
+	image: url(:/facebook.png);
+    background-color:rgba(0,0,0,0);
+}
+
+QPushButton:hover{
+    paddin-bottom:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>970</x>
+      <y>510</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	image: url(:/google.png);
+    background-color:rgba(0,0,0,0);
+}
+
+QPushButton:hover{
+    paddin-bottom:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>700</x>
+      <y>440</y>
+      <width>111</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Black</family>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgba(0,0,0,0);</string>
+    </property>
+    <property name="text">
+     <string>Other Login:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>380</y>
+      <width>71</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+    
+	image: url(:/right-arrow.png);
+    background-color:rgba(0,0,0,0);
+}
+
+QPushButton:hover{
+    paddin-bottom:3px;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1087</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMain">
+    <property name="title">
+     <string>Function</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionFraud_Detection"/>
+    <addaction name="separator"/>
+    <addaction name="actionContact_Us"/>
+    <addaction name="separator"/>
+    <addaction name="actionAbout_Us"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuLog_in">
+    <property name="title">
+     <string>Log in</string>
+    </property>
+    <addaction name="actionVIP_Account"/>
+    <addaction name="separator"/>
+    <addaction name="actionLog_in_as_Guest"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuDonate">
+    <property name="title">
+     <string>Donate Us</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionAbout_Donation"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuLog_in"/>
+   <addaction name="menuMain"/>
+   <addaction name="menuDonate"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionFraud_Detection">
+   <property name="text">
+    <string>Fraud Detection</string>
+   </property>
+  </action>
+  <action name="actionContact_Us">
+   <property name="text">
+    <string>Contact Us</string>
+   </property>
+  </action>
+  <action name="actionAbout_Us">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionVIP_Account">
+   <property name="text">
+    <string>VIP Account</string>
+   </property>
+  </action>
+  <action name="actionLog_in_as_Guest">
+   <property name="text">
+    <string>Log in as Guest</string>
+   </property>
+  </action>
+  <action name="actionAbout_Donation">
+   <property name="text">
+    <string>About Donation</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="BG/bg.qrc"/>
+ </resources>
+ <connections/>
+</ui>

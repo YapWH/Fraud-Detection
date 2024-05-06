@@ -5,6 +5,9 @@ from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 import torch
 import torch.nn as nn
+import numpy as np
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+from sklearn.compose import ColumnTransformer
 import torch.optim as optim
 import torchvision.models as models
 from torch.utils.data import DataLoader, TensorDataset
@@ -17,17 +20,31 @@ def DataPreprocess(data):
 
     # Categorical Variables
     categorical_data = data.select_dtypes(include=['object'])
-    data = pd.get_dummies(data, columns=categorical_data.columns)
+    numeric_data = data.select_dtypes(include=['number'])
 
-    # Standardize your data
+    # Apply one-hot encoding to categorical columns
+    if not categorical_data.empty:
+        transformer = ColumnTransformer(
+            transformers=[
+                ('cat', OneHotEncoder(), categorical_data.columns)
+            ],
+            remainder='passthrough'  # Pass through numerical columns unchanged
+        )
+        data_encoded = transformer.fit_transform(data)
+    else:
+        data_encoded = numeric_data  # No categorical columns, use numeric data as it is
+
+    # Standardize only the numerical columns
     scaler = StandardScaler()
-    scaled_data = scaler.fit_transform(data)
+    scaled_numeric_data = scaler.fit_transform(numeric_data)
 
     # Convert scaled data back to DataFrame
-    scaled_df = pd.DataFrame(scaled_data, columns=data.columns)
-    #scaled_data = scaled_data.reshape(-1, scaled_data.shape[1], 1)
-    
-    return scaled_df
+    scaled_numeric_df = pd.DataFrame(scaled_numeric_data, columns=numeric_data.columns)
+
+    # Concatenate one-hot encoded and scaled numerical data
+    processed_data = pd.concat([pd.DataFrame(data_encoded), scaled_numeric_df], axis=1)
+
+    return processed_data
 
 
 def set_logger(log_path):
@@ -195,6 +212,38 @@ def main():
     test(latest_model(), test_loader, criterion, device)
     #test("./model/model_  70.pth", test_loader, criterion, device)
     logging.info('---------- Testing  Finished ----------')
+
+def demo():
+    data = pd.read_csv('data/test.csv')
+
+    scaled_data = DataPreprocess(data)
+    print(scaled_data.shape)
+
+    X_test_tensor = torch.tensor(scaled_data.values).long()
+    test_data = TensorDataset(X_test_tensor)
+
+    batch_size = 10
+    test_loader = DataLoader(test_data, batch_size=batch_size, shuffle=False)
+    
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    model_path = './model/model_46.pth'
+    model = ResNet(150).to(device)
+    model.load_state_dict(torch.load(model_path, map_location=device))
+    model.eval()
+    # model = torch.load('./model/model_46.pth', map_location=torch.device('cpu'))
+
+    model_outputs = []
+    with torch.no_grad():
+        for inputs in test_loader:
+            inputs = inputs[0].to(device)  
+            outputs = model(inputs)
+            model_outputs.append(outputs.cpu().numpy()) 
+
+    model_outputs = np.concatenate(model_outputs, axis=0)
+
+    output_df = pd.DataFrame({'TransactionID': data['TransactionID'], 'isFraud': model_outputs})
+
+    output_df.to_csv('submission.csv', index=False)
 
 
 if __name__ == '__main__':
