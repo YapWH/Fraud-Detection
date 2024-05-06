@@ -29,3 +29,8 @@ To get started with the project, follow these steps:
 2. Open the folder and run the `MCYIC.py` file.
    ```sh
    python MCYIC.py
+
+## Contribution
+<a href="https://github.com/YapWH/Fraud-Detection/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=YapWH/Fraud-Detection" />
+</a>
